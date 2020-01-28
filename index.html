@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Prueba
+        </title>
+        <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel="stylesheet">
+        </link>
+    </head>
+    <body>
+        <div class="container mt-5" id="app">
+            <div :class="['p-3','text-white',fondo]">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec massa quam, cursus a risus nec, pretium pellentesque libero. Nunc eleifend turpis ligula, non egestas enim faucibus ut. Cras quis commodo diam, vitae aliquam dolor. Proin malesuada laoreet erat. Morbi bibendum urna vitae consectetur pulvinar. Vestibulum id dapibus libero. Nam accumsan vitae risus et vulputate. Ut tincidunt magna vel enim pulvinar, fringilla ultrices ante semper. Mauris dictum ante a turpis molestie, non sodales lacus cursus. Aenean feugiat ex non pulvinar posuere. Proin metus tortor, efficitur id dui ac, cursus vulputate erat. Duis id lacinia urna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus viverra purus ex, ut finibus mi aliquam vehicula. Aenean sit amet ullamcorper tortor.
+                </p>
+            </div>
+            <input class="form-control my-3" type="text" v-model="fondo"/>
+            <div :class="{'bg-info':color, 'bg-success':!color}" class="p-3 text-white">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec massa quam, cursus a risus nec, pretium pellentesque libero. Nunc eleifend turpis ligula, non egestas enim faucibus ut. Cras quis commodo diam, vitae aliquam dolor. Proin malesuada laoreet erat. Morbi bibendum urna vitae consectetur pulvinar. Vestibulum id dapibus libero. Nam accumsan vitae risus et vulputate. Ut tincidunt magna vel enim pulvinar, fringilla ultrices ante semper. Mauris dictum ante a turpis molestie, non sodales lacus cursus. Aenean feugiat ex non pulvinar posuere. Proin metus tortor, efficitur id dui ac, cursus vulputate erat. Duis id lacinia urna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus viverra purus ex, ut finibus mi aliquam vehicula. Aenean sit amet ullamcorper tortor.
+                </p>
+                <button @click="color = !color" class="btn btn-primary">
+                    Cambiar
+                </button>
+            </div>
+            <h1>
+                {{titulo}}
+            </h1>
+            <ul>
+                <li v-for="fruta of frutas">
+                    {{fruta}}
+                </li>
+            </ul>
+            <input @keyup.enter="agregarVerdura" type="text" v-model="nuevaVerdura">
+            </input>
+            <button @click="agregarVerdura()">
+                Agregar
+            </button>
+            <ul>
+                <li v-for="verdura of verduras">
+                    <input type="number" v-model.number="verdura.cantidad">
+                        {{verdura.nombre}}
+                        <span v-if="verdura.cantidad === 0">
+                            - Sin stock
+                        </span>
+                        <button @click="verdura.cantidad++">
+                            +
+                        </button>
+                    </input>
+                </li>
+            </ul>
+            <h4>
+                Total: {{sumarVerduras}}
+            </h4>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+        </script>
+        <script src="01.js">
+        </script>
+    </body>
+</html>
