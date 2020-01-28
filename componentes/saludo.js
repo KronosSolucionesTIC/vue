@@ -11,6 +11,3 @@ Vue.component('saludo', {
         }
     }
 });
-new Vue({
-    el: '#app'
-});
